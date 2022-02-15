@@ -1,0 +1,434 @@
+root_dir: /mnt/hdd/jacky/constrained_manip
+original_cwd: ''
+tag: sugar_box_s0
+seed: 0
+n_data: 10
+vis:
+  init_scene: false
+  delta_pose: false
+  stable_pose: false
+  init_ct: false
+  final_ct: false
+  valids: false
+  save_init: false
+  save_sampled: false
+  save_sampled_gripper: false
+env: FrankaShelfEnv
+scene:
+  cts: true
+  n_envs: 1
+  es: 0
+  gui: 0
+  cam:
+    cam_pos:
+    - 0.8
+    - 0
+    - 1.3
+    look_at:
+    - 0.3
+    - 0
+    - 0.3
+  gym:
+    dt: 0.01
+    substeps: 2
+    up_axis: z
+    type: physx
+    use_gpu_pipeline: true
+    flex:
+      solver_type: 5
+      num_outer_iterations: 4
+      num_inner_iterations: 20
+      relaxation: 0.5
+      warm_start: 0.8
+      shape_collision_margin: 0.001
+      deterministic_mode: true
+    physx:
+      solver_type: 1
+      num_position_iterations: 8
+      num_velocity_iterations: 1
+      rest_offset: 0.0
+      contact_offset: 0.001
+      friction_offset_threshold: 0.001
+      friction_correlation_distance: 0.0005
+      use_gpu: true
+    device:
+      compute: 0
+      graphics: 0
+    plane:
+      dynamic_friction: 1
+      static_friction: 1
+      restitution: 0
+  draw: false
+franka:
+  assets_root: assets
+  urdf: franka_description/robots/franka_panda_dynamics_extended_gripper.urdf
+  custom_ee_offset:
+  - 0
+  - 0
+  - 0.07
+  custom_left_finger_rb_name: panda_leftfinger_ext
+  custom_right_finger_rb_name: panda_rightfinger_ext
+  ee_collision_pts: data/ee_collision_pts.npz
+  asset_options:
+    fix_base_link: true
+    flip_visual_attachments: true
+    armature: 0.01
+    max_linear_velocity: 100.0
+    max_angular_velocity: 40.0
+    disable_gravity: true
+  shape_props:
+    friction: 1
+    rolling_friction: 1
+    torsion_friction: 1
+    thickness: 0.002
+  dof_props:
+    stiffness:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 10000.0
+    - 10000.0
+    damping:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 40
+    - 40
+    effort:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 10000.0
+    - 50000.0
+  init_joints:
+  - 1.3243647
+  - -1.5151265
+  - -1.6667328
+  - -1.630572
+  - 0.03088365
+  - 1.3797946
+  - -0.88619614
+  - 0.04000163
+  - 0.0399982
+  init_ee_tf_path: data/T_ready_table_world.tf
+use_obj: sugar_box
+objs:
+  assets_root: assets
+  init_pose:
+    near_obstacle_p: 0.7
+    axis_aligned_p: 0.7
+    rotation:
+    - -180
+    - 180
+  gym:
+    shape_props:
+      friction: 0.5
+      rolling_friction: 0.2
+      torsion_friction: 0.5
+      thickness: 0.002
+      restitution: 0.3
+    asset_options:
+      override_com: true
+      override_inertia: true
+      fix_base_link: true
+  foam_brick:
+    urdf: ycb/061_foam_brick/061_foam_brick.urdf
+    kps:
+    - - 0
+      - 0
+      - 0
+  potted_meat_can:
+    urdf: ycb/010_potted_meat_can/010_potted_meat_can.urdf
+    kps:
+    - - 0
+      - 0
+      - 0
+  cracker_box:
+    urdf: ycb/003_cracker_box/003_cracker_box.urdf
+    kps:
+    - - 0
+      - 0
+      - 0
+  sugar_box:
+    urdf: ycb/004_sugar_box/004_sugar_box.urdf
+    kps:
+    - - 0
+      - 0
+      - 0
+  pudding_box:
+    urdf: ycb/008_pudding_box/008_pudding_box.urdf
+    kps:
+    - - 0
+      - 0
+      - 0
+  gelatin_box:
+    urdf: ycb/009_gelatin_box/009_gelatin_box.urdf
+    kps:
+    - - 0
+      - 0
+      - 0
+  wood_block:
+    urdf: ycb/036_wood_block/036_wood_block.urdf
+    kps:
+    - - 0
+      - 0
+      - 0
+  master_chef_can:
+    urdf: ycb/002_master_chef_can/002_master_chef_can.urdf
+    kps:
+    - - 0
+      - 0
+      - 0
+  tomato_soup_can:
+    urdf: ycb/005_tomato_soup_can/005_tomato_soup_can.urdf
+    kps:
+    - - 0
+      - 0
+      - 0
+  mug:
+    urdf: ycb/025_mug/025_mug.urdf
+    kps:
+    - - 0
+      - 0
+      - 0
+  tuna_fish_can:
+    urdf: ycb/007_tuna_fish_can/007_tuna_fish_can.urdf
+    kps:
+    - - 0
+      - 0
+      - 0
+  pitcher_base:
+    urdf: ycb/019_pitcher_base/019_pitcher_base.urdf
+    kps:
+    - - 0
+      - 0
+      - 0
+  mustard_bottle:
+    urdf: ycb/006_mustard_bottle/006_mustard_bottle.urdf
+    kps:
+    - - 0
+      - 0
+      - 0
+  bleach_cleanser:
+    urdf: ycb/021_bleach_cleanser/021_bleach_cleanser.urdf
+    kps:
+    - - 0
+      - 0
+      - 0
+shelf:
+  type: back1
+  randomize: true
+  tf_path: data/T_shelf_world.tf
+  surface_th: 0.005
+  bottom_thickness: 0.02
+  collide_with_robot: true
+  gym:
+    sides:
+      shape_props:
+        friction: 0.1
+        rolling_friction: 1
+        torsion_friction: 1
+        thickness: 0.002
+      rb_props:
+        color:
+        - 0.7
+        - 0.7
+        - 0.7
+      asset_options:
+        fix_base_link: true
+    bottom:
+      shape_props:
+        friction: 0.5
+        rolling_friction: 0
+        torsion_friction: 1
+        thickness: 0.002
+      rb_props:
+        color:
+        - 0.7
+        - 0.7
+        - 0.7
+      asset_options:
+        fix_base_link: true
+  back1:
+    length:
+    - 0.45
+    - 0.5
+    width:
+    - 0.18
+    - 0.2
+    height:
+    - 0.3
+    - 0.33
+    thickness:
+    - 0.01
+    - 0.02
+    angle:
+    - -10
+    - 10
+    dx:
+    - -0.03
+    - 0.03
+    dy:
+    - -0.03
+    - 0.03
+  back2:
+    length:
+    - 0.45
+    - 0.5
+    width:
+    - 0.18
+    - 0.2
+    height:
+    - 0.3
+    - 0.33
+    thickness:
+    - 0.01
+    - 0.015
+    middle:
+    - -0.1
+    - 0.1
+    angle:
+    - -10
+    - 10
+    dx:
+    - -0.03
+    - 0.03
+    dy:
+    - -0.03
+    - 0.03
+  noback1:
+    length:
+    - 0.45
+    - 0.5
+    width:
+    - 0.18
+    - 0.2
+    height:
+    - 0.3
+    - 0.33
+    thickness:
+    - 0.01
+    - 0.02
+    angle:
+    - -10
+    - 10
+    dx:
+    - -0.03
+    - 0.03
+    dy:
+    - -0.03
+    - 0.03
+  noback2:
+    length:
+    - 0.45
+    - 0.5
+    width:
+    - 0.18
+    - 0.2
+    height:
+    - 0.3
+    - 0.33
+    thickness:
+    - 0.01
+    - 0.015
+    middle:
+    - -0.1
+    - 0.1
+    angle:
+    - -10
+    - 10
+    dx:
+    - -0.03
+    - 0.03
+    dy:
+    - -0.03
+    - 0.03
+  front:
+    length:
+    - 0.45
+    - 0.55
+    width:
+    - 0.18
+    - 0.2
+    height:
+    - 0.3
+    - 0.33
+    thickness:
+    - 0.01
+    - 0.02
+    middle:
+    - -0.1
+    - 0.1
+    middle_thickness:
+    - 0.01
+    - 0.03
+    angle:
+    - -10
+    - 10
+    dx:
+    - -0.03
+    - 0.03
+    dy:
+    - -0.03
+    - 0.03
+  corner:
+    length:
+    - 0.22
+    - 0.28
+    width:
+    - 0.18
+    - 0.2
+    height:
+    - 0.3
+    - 0.33
+    thickness:
+    - 0.01
+    - 0.02
+    angle:
+    - 60
+    - 30
+    dx:
+    - -0.03
+    - 0.03
+    dy:
+    - -0.03
+    - 0.03
+camera:
+  cam_props:
+    width: 320
+    height: 240
+  positions:
+    front:
+    - 0
+    - -0.4
+    - 0.1
+    front_left:
+    - -0.35
+    - -0.35
+    - 0.1
+    front_right:
+    - 0.35
+    - -0.35
+    - 0.1
+  pc_fusion_filters:
+    x:
+    - 0.22
+    - 0.75
+    'y':
+    - 0
+    - 0.3
+    z:
+    - 0.22
+    - 0.8
